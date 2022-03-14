@@ -1,0 +1,264 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="196"
+Name="backend.optimizer.geqo.geqo_mutation.c"
+Num_CICBs="2">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(38,1),(62,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="geqo_mutation">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="14">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+37545
+37546
+37547
+37548
+37549
+37550
+37551
+37552
+37553
+37554
+37555
+37556
+37557
+37558
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="14">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+37545
+37546
+37547
+37548
+37549
+37550
+37551
+37552
+37553
+37554
+37555
+37556
+37557
+37558
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(41,2),(61,2)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(43,2),(43,49)">
+<Variable
+Id="37545"
+Name="num_swaps"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+<Cyclic
+Id="2379"
+Code_Loc="(47,2),(61,2)">
+<Point_Block
+Num_points="7"
+Braced="Yes"
+Code_Loc="(49,3),(60,17)">
+<Data
+Data_owner="Expression"
+Code_Loc="(49,3),(49,40)">
+<Variable
+Id="37546"
+Name="swap1"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(50,3),(50,40)">
+<Variable
+Id="37547"
+Name="swap2"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+<Cyclic
+Id="2380"
+Code_Loc="(52,3),(53,41)">
+</Cyclic>
+<Data
+Data_owner="Expression"
+Code_Loc="(55,3),(55,21)">
+<Variable
+Id="37548"
+Name="temp"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37549"
+Name="tour"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37550"
+Name="swap1"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(56,3),(56,28)">
+<Variable
+Id="37551"
+Name="tour"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37552"
+Name="swap1"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37553"
+Name="tour"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37554"
+Name="swap2"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(57,3),(57,21)">
+<Variable
+Id="37555"
+Name="tour"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37556"
+Name="swap2"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+<Variable
+Id="37557"
+Name="temp"
+Access="Read"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(60,3),(60,17)">
+<Variable
+Id="37558"
+Name="num_swaps"
+Access="Write"
+Access_block="(196,1)"
+Home_block="(196,1)"/>
+</Data>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+</Component>

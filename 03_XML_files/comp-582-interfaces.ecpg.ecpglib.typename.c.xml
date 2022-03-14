@@ -1,0 +1,319 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="582"
+Name="interfaces.ecpg.ecpglib.typename.c"
+Num_CICBs="3">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(16,1),(101,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="ecpg_type_name">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(19,2),(66,13)">
+<Selective
+If_Blocks="No"
+Code_Loc="(19,2),(65,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(22,4),(22,17)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(24,4),(24,26)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(26,4),(26,18)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(28,4),(28,27)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(30,4),(30,16)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(32,4),(32,25)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(34,4),(34,17)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(36,4),(36,26)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(38,4),(38,22)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(40,4),(40,31)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(42,4),(42,18)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(44,4),(44,19)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(46,4),(46,17)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(48,4),(48,20)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(50,4),(50,17)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(52,4),(52,20)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(54,4),(54,20)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(56,4),(56,17)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(58,4),(58,22)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(60,4),(60,21)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(62,4),(62,18)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(64,4),(64,11)">
+</Point_Block>
+</Selective>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="ecpg_dynamic_type">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(72,2),(100,2)">
+<Selective
+If_Blocks="No"
+Code_Loc="(72,2),(100,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(75,4),(75,23)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(77,4),(77,24)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(79,4),(79,23)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(81,4),(81,25)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(83,4),(83,20)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(85,4),(85,32)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(87,4),(87,25)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(89,4),(89,33)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(91,4),(91,35)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(93,4),(93,35)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(95,4),(95,35)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(97,4),(97,23)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(99,4),(99,22)">
+</Point_Block>
+</Selective>
+</Point_Block>
+</CICB>
+</Component>

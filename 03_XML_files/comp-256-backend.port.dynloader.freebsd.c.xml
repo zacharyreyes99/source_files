@@ -1,0 +1,336 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="256"
+Name="backend.port.dynloader.freebsd.c"
+Num_CICBs="5">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50443
+50444
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(45,1),(107,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="BSD44_derived_dlerror">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50445
+50446
+50447
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50445
+50443
+50444
+50446
+50447
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(50,2),(54,35)">
+<Data
+Data_owner="Expression"
+Code_Loc="(52,2),(52,28)">
+<Variable
+Id="50445"
+Name="ret"
+Access="Write"
+Access_block="(256,1)"
+Home_block="(256,1)"/>
+<Variable
+Id="50443"
+Name="error_message"
+Access="Read"
+Access_block="(256,1)"
+Home_block="(256,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(53,2),(53,22)">
+<Variable
+Id="50444"
+Name="error_message"
+Access="Write"
+Access_block="(256,1)"
+Home_block="(256,0)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(54,2),(54,35)">
+<Variable
+Id="50446"
+Name="ret"
+Access="Read"
+Access_block="(256,1)"
+Home_block="(256,1)"/>
+<Variable
+Id="50447"
+Name="ret"
+Access="Read"
+Access_block="(256,1)"
+Home_block="(256,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="BSD44_derived_dlopen">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50448
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50448
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(65,2),(70,11)">
+<Conditional
+Code_Loc="(67,2),(69,48)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(70,2),(70,11)">
+<Variable
+Id="50448"
+Name="vp"
+Access="Read"
+Access_block="(256,2)"
+Home_block="(256,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="BSD44_derived_dlsym">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="6">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50449
+50450
+50451
+50452
+50453
+50454
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="6">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50449
+50450
+50451
+50452
+50453
+50454
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(82,2),(96,11)">
+<Conditional
+Code_Loc="(87,2),(91,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(89,3),(90,13)">
+<Data
+Data_owner="Expression"
+Code_Loc="(89,3),(89,42)">
+<Variable
+Id="50449"
+Name="buf"
+Access="Write"
+Access_block="(256,3)"
+Home_block="(256,3)"/>
+<Variable
+Id="50450"
+Name="buf"
+Access="Read"
+Access_block="(256,3)"
+Home_block="(256,3)"/>
+<Variable
+Id="50451"
+Name="name"
+Access="Read"
+Access_block="(256,3)"
+Home_block="(256,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(90,3),(90,13)">
+<Variable
+Id="50452"
+Name="name"
+Access="Write"
+Access_block="(256,3)"
+Home_block="(256,3)"/>
+<Variable
+Id="50453"
+Name="buf"
+Access="Read"
+Access_block="(256,3)"
+Home_block="(256,3)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(93,2),(95,32)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(96,2),(96,11)">
+<Variable
+Id="50454"
+Name="vp"
+Access="Read"
+Access_block="(256,3)"
+Home_block="(256,3)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="BSD44_derived_dlclose">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50455
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50455
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(105,2),(105,17)">
+<Data
+Data_owner="Expression"
+Code_Loc="(105,2),(105,17)">
+<Variable
+Id="50455"
+Name="handle"
+Access="Write"
+Access_block="(256,4)"
+Home_block="(256,4)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

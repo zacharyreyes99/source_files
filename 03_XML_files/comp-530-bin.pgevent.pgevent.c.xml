@@ -1,0 +1,240 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="530"
+Name="bin.pgevent.pgevent.c"
+Num_CICBs="4">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+101135
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+101135
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(20,1),(119,1)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(20,1),(20,24)">
+<Variable
+Id="101135"
+Name="g_module"
+Access="Write"
+Access_block="(530,0)"
+Home_block="(530,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="DllRegisterServer">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+101136
+101137
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+101136
+101137
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="6"
+Braced="Yes"
+Code_Loc="(35,2),(83,13)">
+<Conditional
+Code_Loc="(40,2),(44,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(42,3),(43,27)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(50,2),(54,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(52,3),(53,27)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(57,2),(66,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(64,3),(65,27)">
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(69,2),(69,80)">
+<Variable
+Id="101136"
+Name="data"
+Access="Write"
+Access_block="(530,1)"
+Home_block="(530,1)"/>
+</Data>
+<Conditional
+Code_Loc="(71,2),(80,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(78,3),(79,27)">
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(82,2),(82,18)">
+<Variable
+Id="101137"
+Name="key"
+Access="Write"
+Access_block="(530,1)"
+Home_block="(530,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="DllUnregisterServer">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(98,2),(103,13)">
+<Conditional
+Code_Loc="(98,2),(102,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(100,3),(101,27)">
+</Point_Block>
+</Conditional>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="WINAPI">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(116,2),(118,13)">
+<Conditional
+Code_Loc="(116,2),(117,21)">
+</Conditional>
+</Point_Block>
+</CICB>
+</Component>

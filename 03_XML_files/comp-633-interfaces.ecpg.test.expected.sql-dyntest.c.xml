@@ -1,0 +1,465 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="633"
+Name="interfaces.ecpg.test.expected.sql-dyntest.c"
+Num_CICBs="3">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(146,1),(489,3)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="error">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(149,3),(150,11)">
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="main">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="18">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117722
+117723
+117724
+117725
+117726
+117727
+117728
+117729
+117730
+117731
+117732
+117733
+117734
+117735
+117736
+117737
+117738
+117739
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="18">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117722
+117723
+117724
+117725
+117726
+117727
+117728
+117729
+117730
+117731
+117732
+117733
+117734
+117735
+117736
+117737
+117738
+117739
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="5"
+Braced="Yes"
+Code_Loc="(169,2),(488,11)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(200,3),(200,15)">
+<Variable
+Id="117722"
+Name="done"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(208,3),(208,34)">
+<Variable
+Id="117723"
+Name="QUERY"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+<Conditional
+Code_Loc="(217,1),(217,33)">
+</Conditional>
+<Cyclic
+Id="5718"
+Code_Loc="(273,3),(472,5)">
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(275,7),(471,2)">
+<Conditional
+Code_Loc="(284,7),(285,7)">
+</Conditional>
+<Conditional
+Code_Loc="(294,7),(298,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(296,4),(297,12)">
+<Data
+Data_owner="Expression"
+Code_Loc="(296,4),(296,40)">
+<Variable
+Id="117724"
+Name="COUNT"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(297,4),(297,12)">
+<Variable
+Id="117725"
+Name="done"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Cyclic
+Id="5719"
+Code_Loc="(300,7),(471,2)">
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(302,2),(470,8)">
+<Data
+Data_owner="Expression"
+Code_Loc="(317,4),(317,116)">
+<Variable
+Id="117726"
+Name="INDEX"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117727"
+Name="NAME"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117728"
+Name="TYPE"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117729"
+Name="LENGTH"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117730"
+Name="PRECISION"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117731"
+Name="SCALE"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+<Selective
+If_Blocks="No"
+Code_Loc="(318,4),(393,6)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(321,8),(322,13)">
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(324,8),(325,13)">
+<Data
+Data_owner="Expression"
+Code_Loc="(324,8),(324,51)">
+<Variable
+Id="117732"
+Name="PRECISION"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117733"
+Name="SCALE"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(327,8),(328,13)">
+<Data
+Data_owner="Expression"
+Code_Loc="(327,8),(327,51)">
+<Variable
+Id="117734"
+Name="PRECISION"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117735"
+Name="SCALE"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(330,8),(331,13)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(333,8),(334,13)">
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(336,8),(337,13)">
+<Data
+Data_owner="Expression"
+Code_Loc="(336,8),(336,49)">
+<Variable
+Id="117736"
+Name="PRECISION"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117737"
+Name="SCALE"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(339,8),(340,13)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(342,8),(343,13)">
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(345,6),(371,13)">
+<Selective
+If_Blocks="No"
+Code_Loc="(353,8),(370,3)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(356,5),(357,10)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(359,5),(360,10)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(362,5),(363,10)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(365,5),(366,10)">
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(368,5),(369,10)">
+</Point_Block>
+</Selective>
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(373,8),(374,13)">
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(376,8),(380,13)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(376,8),(379,18)">
+</Selective>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(382,8),(386,13)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(382,8),(385,23)">
+</Selective>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(388,8),(392,13)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(388,8),(391,29)">
+</Selective>
+</Point_Block>
+</Selective>
+<Data
+Data_owner="Expression"
+Code_Loc="(394,4),(395,41)">
+<Variable
+Id="117738"
+Name="OCTET_LENGTH"
+Access="Write"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+<Variable
+Id="117739"
+Name="RETURNED_OCTET_LENGTH"
+Access="Read"
+Access_block="(633,2)"
+Home_block="(633,2)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(396,4),(470,8)">
+</Selective>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</Cyclic>
+<Conditional
+Code_Loc="(484,1),(484,33)">
+</Conditional>
+</Point_Block>
+</CICB>
+</Component>

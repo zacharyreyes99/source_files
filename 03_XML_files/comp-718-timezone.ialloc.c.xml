@@ -1,0 +1,352 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="718"
+Name="timezone.ialloc.c"
+Num_CICBs="8">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(16,1),(76,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="imalloc">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(19,2),(19,36)">
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="icalloc">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+124850
+124851
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+124850
+124851
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(25,2),(27,48)">
+<Conditional
+Code_Loc="(25,2),(26,21)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(27,2),(27,48)">
+<Variable
+Id="124850"
+Name="nelem"
+Access="Read"
+Access_block="(718,2)"
+Home_block="(718,2)"/>
+<Variable
+Id="124851"
+Name="elsize"
+Access="Read"
+Access_block="(718,2)"
+Home_block="(718,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="irealloc">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+124852
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+124852
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(33,2),(35,58)">
+<Conditional
+Code_Loc="(33,2),(34,23)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(35,2),(35,58)">
+<Variable
+Id="124852"
+Name="pointer"
+Access="Read"
+Access_block="(718,3)"
+Home_block="(718,3)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="icatalloc">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+124853
+124854
+124855
+124856
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+124853
+124854
+124855
+124856
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(41,2),(55,15)">
+<Data
+Data_owner="Expression"
+Code_Loc="(45,2),(45,43)">
+<Variable
+Id="124853"
+Name="newsize"
+Access="Write"
+Access_block="(718,4)"
+Home_block="(718,4)"/>
+<Variable
+Id="124854"
+Name="new"
+Access="Read"
+Access_block="(718,4)"
+Home_block="(718,4)"/>
+<Variable
+Id="124855"
+Name="new"
+Access="Read"
+Access_block="(718,4)"
+Home_block="(718,4)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(46,2),(51,24)">
+</Selective>
+<Conditional
+Code_Loc="(52,2),(54,40)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(55,2),(55,15)">
+<Variable
+Id="124856"
+Name="result"
+Access="Read"
+Access_block="(718,4)"
+Home_block="(718,4)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="5"
+Name="icpyalloc">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(61,2),(61,41)">
+</Point_Block>
+</CICB>
+<CICB
+Id="6"
+Name="ifree">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(67,2),(68,17)">
+<Conditional
+Code_Loc="(67,2),(68,17)">
+</Conditional>
+</Point_Block>
+</CICB>
+<CICB
+Id="7"
+Name="icfree">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(74,2),(75,17)">
+<Conditional
+Code_Loc="(74,2),(75,17)">
+</Conditional>
+</Point_Block>
+</CICB>
+</Component>

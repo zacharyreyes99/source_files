@@ -1,0 +1,548 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="649"
+Name="interfaces.libpq.fe-auth.c"
+Num_CICBs="6">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(685,1),(1042,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="pg_local_sendauth">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117953
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117953
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(735,2),(737,21)">
+<Data
+Data_owner="Expression"
+Code_Loc="(735,2),(736,68)">
+<Variable
+Id="117953"
+Name="conn"
+Access="Write"
+Access_block="(649,1)"
+Home_block="(649,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="pg_password_sendauth">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117954
+117955
+117956
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117954
+117955
+117956
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(744,2),(793,12)">
+<Selective
+If_Blocks="No"
+Code_Loc="(749,2),(785,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(752,4),(778,4)">
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(781,4),(782,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(781,4),(781,33)">
+<Variable
+Id="117954"
+Name="crypt_pwd"
+Access="Write"
+Access_block="(649,2)"
+Home_block="(649,2)"/>
+<Variable
+Id="117955"
+Name="password"
+Access="Read"
+Access_block="(649,2)"
+Home_block="(649,2)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(784,4),(784,23)">
+</Point_Block>
+</Selective>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(787,2),(790,64)">
+</Selective>
+<Conditional
+Code_Loc="(791,2),(792,18)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(793,2),(793,12)">
+<Variable
+Id="117956"
+Name="ret"
+Access="Read"
+Access_block="(649,2)"
+Home_block="(649,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="pg_fe_sendauth">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="10">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117957
+117958
+117959
+117960
+117961
+117962
+117963
+117964
+117965
+117966
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="10">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117957
+117958
+117959
+117960
+117961
+117962
+117963
+117964
+117965
+117966
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(803,2),(955,18)">
+<Selective
+If_Blocks="No"
+Code_Loc="(803,2),(953,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(806,4),(806,9)">
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(809,4),(811,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(809,4),(810,65)">
+<Variable
+Id="117957"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(825,4),(827,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(825,4),(826,65)">
+<Variable
+Id="117958"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(892,4),(894,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(892,4),(893,62)">
+<Variable
+Id="117959"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(916,4),(918,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(916,4),(917,62)">
+<Variable
+Id="117960"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(923,4),(925,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(923,4),(924,62)">
+<Variable
+Id="117961"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(929,4),(942,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(929,4),(929,32)">
+<Variable
+Id="117962"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+<Conditional
+Code_Loc="(930,4),(935,4)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(932,5),(934,24)">
+<Data
+Data_owner="Expression"
+Code_Loc="(932,5),(933,32)">
+<Variable
+Id="117963"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(936,4),(941,4)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(938,5),(940,24)">
+<Data
+Data_owner="Expression"
+Code_Loc="(938,5),(939,62)">
+<Variable
+Id="117964"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+</Conditional>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(945,4),(947,9)">
+<Conditional
+Code_Loc="(945,4),(946,24)">
+</Conditional>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(950,4),(952,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(950,4),(951,68)">
+<Variable
+Id="117965"
+Name="conn"
+Access="Write"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+<Variable
+Id="117966"
+Name="areq"
+Access="Read"
+Access_block="(649,3)"
+Home_block="(649,3)"/>
+</Data>
+</Point_Block>
+</Selective>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="pg_fe_getauthname">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+14748 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117967
+117968
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117967
+117968
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(968,2),(1004,14)">
+<Conditional
+Code_Loc="(989,2),(998,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(995,3),(996,22)">
+<Conditional
+Code_Loc="(995,3),(996,22)">
+</Conditional>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(1000,2),(1000,36)">
+<Variable
+Id="117967"
+Name="authn"
+Access="Write"
+Access_block="(649,4)"
+Home_block="(649,4)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(1004,2),(1004,14)">
+<Variable
+Id="117968"
+Name="authn"
+Access="Read"
+Access_block="(649,4)"
+Home_block="(649,4)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="5"
+Name="PQencryptPassword">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117969
+117970
+117971
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117969
+117970
+117971
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(1029,2),(1041,18)">
+<Data
+Data_owner="Expression"
+Code_Loc="(1031,2),(1031,40)">
+<Variable
+Id="117969"
+Name="crypt_pwd"
+Access="Write"
+Access_block="(649,5)"
+Home_block="(649,5)"/>
+</Data>
+<Conditional
+Code_Loc="(1032,2),(1033,14)">
+</Conditional>
+<Conditional
+Code_Loc="(1035,2),(1039,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(1037,3),(1038,14)">
+<Data
+Data_owner="Expression"
+Code_Loc="(1037,3),(1037,18)">
+<Variable
+Id="117970"
+Name="crypt_pwd"
+Access="Write"
+Access_block="(649,5)"
+Home_block="(649,5)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(1041,2),(1041,18)">
+<Variable
+Id="117971"
+Name="crypt_pwd"
+Access="Read"
+Access_block="(649,5)"
+Home_block="(649,5)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

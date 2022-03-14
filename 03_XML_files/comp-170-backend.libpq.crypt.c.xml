@@ -1,0 +1,439 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="170"
+Name="backend.libpq.crypt.c"
+Num_CICBs="2">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(27,1),(148,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="md5_crypt_verify">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="19">
+<Call_invoke_IDs>
+6520 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34922
+34923
+34924
+34925
+34926
+34927
+34928
+34929
+34930
+34931
+34932
+34933
+34934
+34935
+34936
+34937
+34938
+34939
+34940
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="19">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34922
+34923
+34924
+34925
+34926
+34927
+34928
+34929
+34930
+34931
+34932
+34933
+34934
+34935
+34936
+34937
+34938
+34939
+34940
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="13"
+Braced="Yes"
+Code_Loc="(30,2),(147,15)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(30,2),(32,17)">
+<Variable
+Id="34922"
+Name="shadow_pass"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(33,2),(33,29)">
+<Variable
+Id="34923"
+Name="retval"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(36,2),(36,42)">
+<Variable
+Id="34924"
+Name="crypt_client_pass"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+<Variable
+Id="34925"
+Name="client_pass"
+Access="Read"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Conditional
+Code_Loc="(38,2),(39,22)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(42,2),(42,26)">
+<Variable
+Id="34926"
+Name="token"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+<Variable
+Id="34927"
+Name="line"
+Access="Read"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Conditional
+Code_Loc="(43,2),(44,23)">
+</Conditional>
+<Conditional
+Code_Loc="(45,2),(51,2)">
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(47,3),(50,37)">
+<Data
+Data_owner="Expression"
+Code_Loc="(47,3),(47,39)">
+<Variable
+Id="34928"
+Name="shadow_pass"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+<Variable
+Id="34929"
+Name="token"
+Access="Read"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(48,3),(48,23)">
+<Variable
+Id="34930"
+Name="token"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+<Variable
+Id="34931"
+Name="token"
+Access="Read"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Conditional
+Code_Loc="(49,3),(50,37)">
+</Conditional>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(53,2),(54,22)">
+</Conditional>
+<Selective
+If_Blocks="No"
+Code_Loc="(60,2),(117,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(63,4),(100,9)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(64,4),(99,4)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(67,5),(73,5)">
+<Conditional
+Code_Loc="(67,5),(73,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(71,6),(72,25)">
+</Point_Block>
+</Conditional>
+</Point_Block>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(78,5),(98,22)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(78,5),(78,53)">
+<Variable
+Id="34932"
+Name="crypt_pwd2"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Conditional
+Code_Loc="(80,5),(88,5)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(85,6),(87,25)">
+<Data
+Data_owner="Expression"
+Code_Loc="(86,6),(86,23)">
+<Variable
+Id="34933"
+Name="crypt_pwd2"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(89,5),(97,5)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(94,6),(96,25)">
+<Data
+Data_owner="Expression"
+Code_Loc="(95,6),(95,23)">
+<Variable
+Id="34934"
+Name="crypt_pwd2"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(98,5),(98,22)">
+<Variable
+Id="34935"
+Name="crypt_pwd2"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+</Point_Block>
+</Selective>
+</Point_Block>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(102,4),(116,9)">
+<Conditional
+Code_Loc="(102,4),(114,4)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(105,5),(113,5)">
+<Data
+Data_owner="Expression"
+Code_Loc="(105,5),(105,51)">
+<Variable
+Id="34936"
+Name="crypt_client_pass"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Conditional
+Code_Loc="(106,5),(113,5)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(111,6),(112,25)">
+<Data
+Data_owner="Expression"
+Code_Loc="(111,6),(111,30)">
+<Variable
+Id="34937"
+Name="crypt_client_pass"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(115,4),(115,27)">
+<Variable
+Id="34938"
+Name="shadow_pass"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+</Point_Block>
+</Selective>
+<Conditional
+Code_Loc="(119,2),(140,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(124,3),(139,3)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(124,3),(139,3)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(128,4),(138,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(130,4),(133,35)">
+<Variable
+Id="34939"
+Name="vuntil"
+Access="Write"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(135,4),(138,23)">
+</Selective>
+</Point_Block>
+</Selective>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(142,2),(143,19)">
+</Conditional>
+<Conditional
+Code_Loc="(144,2),(145,27)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(147,2),(147,15)">
+<Variable
+Id="34940"
+Name="retval"
+Access="Read"
+Access_block="(170,1)"
+Home_block="(170,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

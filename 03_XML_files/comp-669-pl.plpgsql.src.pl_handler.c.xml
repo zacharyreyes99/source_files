@@ -1,0 +1,557 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="669"
+Name="pl.plpgsql.src.pl_handler.c"
+Num_CICBs="4">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+121529
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(26,1),(225,1)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(28,1),(28,35)">
+<Variable
+Id="121529"
+Name="plugin_ptr"
+Access="Write"
+Access_block="(669,0)"
+Home_block="(1170,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="_PG_init">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+121530
+121532
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+121530
+121531
+121532
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(40,2),(54,15)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(40,2),(40,28)">
+<Variable
+Id="121530"
+Name="inited"
+Access="Write"
+Access_block="(669,1)"
+Home_block="(669,1)"/>
+</Data>
+<Conditional
+Code_Loc="(42,2),(43,9)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(52,2),(52,77)">
+<Variable
+Id="121531"
+Name="plugin_ptr"
+Access="Write"
+Access_block="(669,1)"
+Home_block="(1170,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(54,2),(54,15)">
+<Variable
+Id="121532"
+Name="inited"
+Access="Write"
+Access_block="(669,1)"
+Home_block="(669,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="plpgsql_call_handler">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(69,2),(113,15)">
+<Conditional
+Code_Loc="(76,2),(77,68)">
+</Conditional>
+<Conditional
+Code_Loc="(110,2),(111,67)">
+</Conditional>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="plpgsql_validator">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="23">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+121533
+121534
+121535
+121536
+121537
+121538
+121539
+121540
+121541
+121542
+121543
+121544
+121545
+121546
+121547
+121548
+121549
+121550
+121551
+121552
+121553
+121554
+121555
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="4"
+Num_Variable_accesses="23">
+<Call_invoke_IDs>
+12513 
+12360 
+12687 
+12550 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+121533
+121534
+121535
+121536
+121537
+121538
+121539
+121540
+121541
+121542
+121543
+121544
+121545
+121546
+121547
+121548
+121549
+121550
+121551
+121552
+121553
+121554
+121555
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="11"
+Braced="Yes"
+Code_Loc="(128,2),(224,18)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(128,2),(128,34)">
+<Variable
+Id="121533"
+Name="funcoid"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(136,2),(136,25)">
+<Variable
+Id="121534"
+Name="istrigger"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(140,2),(142,18)">
+<Variable
+Id="121535"
+Name="tuple"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Call
+Id="12513"
+Name="SearchSysCache"
+Collect="Emanated"
+Access_block="(669,3)"
+Home_block="(461,3)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(140,2),(142,18)">
+<Variable
+Id="121536"
+Name="funcoid"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+</Call>
+</Data>
+<Conditional
+Code_Loc="(143,2),(144,62)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(145,2),(145,40)">
+<Variable
+Id="121537"
+Name="proc"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121538"
+Name="tuple"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(147,2),(147,45)">
+<Variable
+Id="121539"
+Name="functyptype"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Call
+Id="12360"
+Name="get_typtype"
+Collect="Emanated"
+Access_block="(669,3)"
+Home_block="(458,57)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(147,2),(147,45)">
+<Variable
+Id="121540"
+Name="proc"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+</Call>
+</Data>
+<Conditional
+Code_Loc="(151,2),(164,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(154,3),(163,43)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(154,3),(163,43)">
+</Selective>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(168,2),(169,41)">
+<Variable
+Id="121541"
+Name="numargs"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Call
+Id="12687"
+Name="get_func_arg_info"
+Collect="Emanated"
+Access_block="(669,3)"
+Home_block="(468,12)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(168,2),(169,41)">
+<Variable
+Id="121542"
+Name="tuple"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121543"
+Name="argnames"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+</Call>
+</Data>
+<Cyclic
+Id="5952"
+Code_Loc="(170,2),(180,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(172,3),(179,3)">
+<Conditional
+Code_Loc="(172,3),(179,3)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(174,4),(178,39)">
+<Conditional
+Code_Loc="(174,4),(178,39)">
+</Conditional>
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Cyclic>
+<Conditional
+Code_Loc="(183,2),(220,2)">
+<Point_Block
+Num_points="8"
+Braced="Yes"
+Code_Loc="(185,3),(219,68)">
+<Conditional
+Code_Loc="(193,3),(194,69)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(200,3),(200,47)">
+<Variable
+Id="121544"
+Name="fake_fcinfo"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121545"
+Name="fake_fcinfo"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(201,3),(201,37)">
+<Variable
+Id="121546"
+Name="flinfo"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121547"
+Name="flinfo"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(202,3),(202,31)">
+<Variable
+Id="121548"
+Name="fake_fcinfo"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121549"
+Name="flinfo"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121550"
+Name="flinfo"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(203,3),(203,26)">
+<Variable
+Id="121551"
+Name="flinfo"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+<Variable
+Id="121552"
+Name="funcoid"
+Access="Read"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(204,3),(204,40)">
+<Variable
+Id="121553"
+Name="flinfo"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Conditional
+Code_Loc="(205,3),(210,3)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(207,4),(209,44)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(208,4),(208,33)">
+<Variable
+Id="121554"
+Name="type"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(209,4),(209,44)">
+<Variable
+Id="121555"
+Name="fake_fcinfo"
+Access="Write"
+Access_block="(669,3)"
+Home_block="(669,3)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(218,3),(219,68)">
+</Conditional>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(222,2),(222,24)">
+<Call
+Id="12550"
+Name="ReleaseSysCache"
+Collect="Emanated"
+Access_block="(669,3)"
+Home_block="(461,4)">
+</Call>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

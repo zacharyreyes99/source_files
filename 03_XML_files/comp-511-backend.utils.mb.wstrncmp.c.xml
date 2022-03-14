@@ -1,0 +1,221 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="511"
+Name="backend.utils.mb.wstrncmp.c"
+Num_CICBs="4">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(39,1),(77,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="pg_wchar_strncmp">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(42,2),(51,10)">
+<Conditional
+Code_Loc="(42,2),(43,11)">
+</Conditional>
+<Cyclic
+Id="4855"
+Code_Loc="(44,2),(50,20)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(46,3),(49,9)">
+<Conditional
+Code_Loc="(46,3),(47,28)">
+</Conditional>
+<Conditional
+Code_Loc="(48,3),(49,9)">
+</Conditional>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="pg_char_and_wchar_strncmp">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(57,2),(66,10)">
+<Conditional
+Code_Loc="(57,2),(58,11)">
+</Conditional>
+<Cyclic
+Id="4856"
+Code_Loc="(59,2),(65,20)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(61,3),(64,9)">
+<Conditional
+Code_Loc="(61,3),(62,57)">
+</Conditional>
+<Conditional
+Code_Loc="(63,3),(64,9)">
+</Conditional>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="pg_wchar_strlen">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97897
+97898
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97897
+97898
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(72,2),(76,18)">
+<Cyclic
+Id="4857"
+Code_Loc="(74,2),(75,3)">
+</Cyclic>
+<Data
+Data_owner="Jump"
+Code_Loc="(76,2),(76,18)">
+<Variable
+Id="97897"
+Name="s"
+Access="Read"
+Access_block="(511,3)"
+Home_block="(511,3)"/>
+<Variable
+Id="97898"
+Name="str"
+Access="Read"
+Access_block="(511,3)"
+Home_block="(511,3)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

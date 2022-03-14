@@ -1,0 +1,484 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="473"
+Name="backend.utils.init.globals.c"
+Num_CICBs="1">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+96371
+96406
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="36">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+96371
+96372
+96373
+96374
+96375
+96376
+96377
+96378
+96379
+96380
+96381
+96382
+96383
+96384
+96385
+96386
+96387
+96388
+96389
+96390
+96391
+96392
+96393
+96394
+96395
+96396
+96397
+96398
+96399
+96400
+96401
+96402
+96403
+96404
+96405
+96406
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="36"
+Braced="Yes"
+Code_Loc="(26,1),(119,30)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(26,1),(26,54)">
+<Variable
+Id="96371"
+Name="FrontendProtocol"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(473,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(28,1),(28,39)">
+<Variable
+Id="96372"
+Name="InterruptPending"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(29,1),(29,41)">
+<Variable
+Id="96373"
+Name="QueryCancelPending"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(30,1),(30,37)">
+<Variable
+Id="96374"
+Name="ProcDiePending"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(31,1),(31,43)">
+<Variable
+Id="96375"
+Name="ImmediateInterruptOK"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(32,1),(32,42)">
+<Variable
+Id="96376"
+Name="InterruptHoldoffCount"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(33,1),(33,37)">
+<Variable
+Id="96377"
+Name="CritSectionCount"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(47,1),(47,24)">
+<Variable
+Id="96378"
+Name="DataDir"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(60,1),(60,41)">
+<Variable
+Id="96379"
+Name="MyBackendId"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(1046,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(62,1),(62,32)">
+<Variable
+Id="96380"
+Name="MyDatabaseId"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(64,1),(64,40)">
+<Variable
+Id="96381"
+Name="MyDatabaseTableSpace"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(70,1),(70,29)">
+<Variable
+Id="96382"
+Name="DatabasePath"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(72,1),(72,25)">
+<Variable
+Id="96383"
+Name="PostmasterPid"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(85,1),(85,38)">
+<Variable
+Id="96384"
+Name="IsPostmasterEnvironment"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(86,1),(86,32)">
+<Variable
+Id="96385"
+Name="IsUnderPostmaster"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(88,1),(88,29)">
+<Variable
+Id="96386"
+Name="ExitOnAnyError"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(90,1),(90,32)">
+<Variable
+Id="96387"
+Name="DateStyle"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(91,1),(91,32)">
+<Variable
+Id="96388"
+Name="DateOrder"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(92,1),(92,40)">
+<Variable
+Id="96389"
+Name="IntervalStyle"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(93,1),(93,24)">
+<Variable
+Id="96390"
+Name="HasCTZSet"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(94,1),(94,20)">
+<Variable
+Id="96391"
+Name="CTimeZone"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(96,1),(96,25)">
+<Variable
+Id="96392"
+Name="enableFsync"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(97,1),(97,35)">
+<Variable
+Id="96393"
+Name="allowSystemTableMods"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(98,1),(98,22)">
+<Variable
+Id="96394"
+Name="work_mem"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(99,1),(99,35)">
+<Variable
+Id="96395"
+Name="maintenance_work_mem"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(106,1),(106,22)">
+<Variable
+Id="96396"
+Name="NBuffers"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(107,1),(107,24)">
+<Variable
+Id="96397"
+Name="MaxBackends"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(108,1),(108,26)">
+<Variable
+Id="96398"
+Name="MaxConnections"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(110,1),(110,28)">
+<Variable
+Id="96399"
+Name="VacuumCostPageHit"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(111,1),(111,30)">
+<Variable
+Id="96400"
+Name="VacuumCostPageMiss"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(112,1),(112,31)">
+<Variable
+Id="96401"
+Name="VacuumCostPageDirty"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(113,1),(113,28)">
+<Variable
+Id="96402"
+Name="VacuumCostLimit"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(114,1),(114,26)">
+<Variable
+Id="96403"
+Name="VacuumCostDelay"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(116,1),(116,28)">
+<Variable
+Id="96404"
+Name="VacuumCostBalance"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(117,1),(117,31)">
+<Variable
+Id="96405"
+Name="VacuumCostActive"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(927,0)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(119,1),(119,30)">
+<Variable
+Id="96406"
+Name="GinFuzzySearchLimit"
+Access="Write"
+Access_block="(473,0)"
+Home_block="(473,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

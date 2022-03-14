@@ -1,0 +1,416 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="273"
+Name="backend.port.win32.timer.c"
+Num_CICBs="3">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="15">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+51000
+51001
+51002
+51003
+51004
+51005
+51006
+51007
+51008
+51009
+51010
+51011
+51012
+51013
+51014
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+51000
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(25,1),(123,1)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(33,1),(33,55)">
+<Variable
+Id="51000"
+Name="timerThreadHandle"
+Access="Write"
+Access_block="(273,0)"
+Home_block="(273,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="WINAPI">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+51015
+51016
+51017
+51018
+51019
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="11">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+51015
+51016
+51017
+51001
+51018
+51002
+51019
+51003
+51004
+51005
+51006
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(40,2),(80,10)">
+<Data
+Data_owner="Expression"
+Code_Loc="(42,2),(42,23)">
+<Variable
+Id="51015"
+Name="param"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(44,2),(44,21)">
+<Variable
+Id="51016"
+Name="waittime"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,1)"/>
+</Data>
+<Cyclic
+Id="3059"
+Code_Loc="(46,2),(78,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(48,3),(77,3)">
+<Data
+Data_owner="Expression"
+Code_Loc="(50,3),(50,66)">
+<Variable
+Id="51017"
+Name="r"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,1)"/>
+<Variable
+Id="51001"
+Name="timerCommArea"
+Access="Read"
+Access_block="(273,1)"
+Home_block="(273,0)"/>
+<Variable
+Id="51018"
+Name="waittime"
+Access="Read"
+Access_block="(273,1)"
+Home_block="(273,1)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(51,3),(77,3)">
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(54,4),(65,49)">
+<Data
+Data_owner="Expression"
+Code_Loc="(54,4),(54,49)">
+<Variable
+Id="51002"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,0)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(55,4),(63,4)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(61,5),(62,48)">
+<Data
+Data_owner="Expression"
+Code_Loc="(61,5),(62,48)">
+<Variable
+Id="51019"
+Name="waittime"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,1)"/>
+<Variable
+Id="51003"
+Name="timerCommArea"
+Access="Read"
+Access_block="(273,1)"
+Home_block="(273,0)"/>
+<Variable
+Id="51004"
+Name="timerCommArea"
+Access="Read"
+Access_block="(273,1)"
+Home_block="(273,0)"/>
+</Data>
+</Point_Block>
+</Selective>
+<Data
+Data_owner="Expression"
+Code_Loc="(64,4),(64,35)">
+<Variable
+Id="51005"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(65,4),(65,49)">
+<Variable
+Id="51006"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,1)"
+Home_block="(273,0)"/>
+</Data>
+</Point_Block>
+</Selective>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="setitimer">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+51020
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="9">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+51020
+51007
+51008
+51009
+51010
+51011
+51012
+51013
+51014
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="7"
+Braced="Yes"
+Code_Loc="(90,2),(122,10)">
+<Data
+Data_owner="Expression"
+Code_Loc="(92,2),(92,30)">
+<Variable
+Id="51020"
+Name="which"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,2)"/>
+</Data>
+<Conditional
+Code_Loc="(94,2),(112,2)">
+<Point_Block
+Num_points="6"
+Braced="Yes"
+Code_Loc="(97,3),(111,34)">
+<Data
+Data_owner="Expression"
+Code_Loc="(97,3),(97,61)">
+<Variable
+Id="51007"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Conditional
+Code_Loc="(98,3),(101,34)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(103,3),(103,60)">
+<Variable
+Id="51008"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(105,3),(105,53)">
+<Variable
+Id="51009"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(107,3),(107,76)">
+<Variable
+Id="51010"
+Name="timerThreadHandle"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Conditional
+Code_Loc="(108,3),(111,34)">
+</Conditional>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(115,2),(115,47)">
+<Variable
+Id="51011"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Conditional
+Code_Loc="(116,2),(117,32)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(118,2),(118,30)">
+<Variable
+Id="51012"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(119,2),(119,47)">
+<Variable
+Id="51013"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(120,2),(120,31)">
+<Variable
+Id="51014"
+Name="timerCommArea"
+Access="Write"
+Access_block="(273,2)"
+Home_block="(273,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

@@ -1,0 +1,230 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="503"
+Name="backend.utils.mb.conversion_procs.utf8_and_win.utf8_and_win.c"
+Num_CICBs="3">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97529
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97529
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(40,1),(156,1)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(68,1),(102,2)">
+<Variable
+Id="97529"
+Name="maps"
+Access="Write"
+Access_block="(503,0)"
+Home_block="(503,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="win_to_utf8">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97530
+97531
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97530
+97531
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(107,2),(128,18)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(108,2),(108,61)">
+<Variable
+Id="97530"
+Name="src"
+Access="Write"
+Access_block="(503,1)"
+Home_block="(503,1)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(109,2),(109,62)">
+<Variable
+Id="97531"
+Name="dest"
+Access="Write"
+Access_block="(503,1)"
+Home_block="(503,1)"/>
+</Data>
+<Cyclic
+Id="4825"
+Code_Loc="(115,2),(122,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(117,3),(121,3)">
+<Conditional
+Code_Loc="(117,3),(121,3)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(119,4),(120,20)">
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="utf8_to_win">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97532
+97533
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+97532
+97533
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(134,2),(155,18)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(135,2),(135,61)">
+<Variable
+Id="97532"
+Name="src"
+Access="Write"
+Access_block="(503,2)"
+Home_block="(503,2)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(136,2),(136,62)">
+<Variable
+Id="97533"
+Name="dest"
+Access="Write"
+Access_block="(503,2)"
+Home_block="(503,2)"/>
+</Data>
+<Cyclic
+Id="4826"
+Code_Loc="(142,2),(149,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(144,3),(148,3)">
+<Conditional
+Code_Loc="(144,3),(148,3)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(146,4),(147,20)">
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+</Component>

@@ -1,0 +1,312 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="169"
+Name="backend.libpq.be-secure.c"
+Num_CICBs="7">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(101,1),(392,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="secure_initialize">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(192,2),(192,10)">
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="secure_loaded_verify_locations">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(205,2),(205,14)">
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="secure_open_server">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34915
+34916
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34915
+34916
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(214,2),(220,10)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(214,2),(214,13)">
+<Variable
+Id="34915"
+Name="r"
+Access="Write"
+Access_block="(169,3)"
+Home_block="(169,3)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(220,2),(220,10)">
+<Variable
+Id="34916"
+Name="r"
+Access="Read"
+Access_block="(169,3)"
+Home_block="(169,3)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="secure_close">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(-1,-1),(-1,-1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="5"
+Name="secure_read">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34917
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34917
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(241,2),(302,10)">
+<Data
+Data_owner="Jump"
+Code_Loc="(302,2),(302,10)">
+<Variable
+Id="34917"
+Name="n"
+Access="Read"
+Access_block="(169,5)"
+Home_block="(169,5)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="6"
+Name="secure_write">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34918
+34919
+34920
+34921
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+34918
+34919
+34920
+34921
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(311,2),(391,10)">
+<Data
+Data_owner="Expression"
+Code_Loc="(389,3),(389,36)">
+<Variable
+Id="34918"
+Name="n"
+Access="Write"
+Access_block="(169,6)"
+Home_block="(169,6)"/>
+<Variable
+Id="34919"
+Name="port"
+Access="Read"
+Access_block="(169,6)"
+Home_block="(169,6)"/>
+<Variable
+Id="34920"
+Name="len"
+Access="Read"
+Access_block="(169,6)"
+Home_block="(169,6)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(391,2),(391,10)">
+<Variable
+Id="34921"
+Name="n"
+Access="Read"
+Access_block="(169,6)"
+Home_block="(169,6)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

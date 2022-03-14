@@ -1,0 +1,494 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="713"
+Name="test.locale.test-ctype.c"
+Num_CICBs="4">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(27,1),(79,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="flag">
+<Provide
+Num_call_invokes="11"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+15390 
+15391 
+15392 
+15393 
+15394 
+15395 
+15396 
+15397 
+15398 
+15399 
+15400 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123916
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123916
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(38,2),(38,22)">
+<Data
+Data_owner="Jump"
+Code_Loc="(38,2),(38,22)">
+<Variable
+Id="123916"
+Name="b"
+Access="Read"
+Access_block="(713,1)"
+Home_block="(713,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="describe_char">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="17">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123917
+123918
+123919
+123920
+123921
+123922
+123923
+123924
+123925
+123926
+123927
+123928
+123929
+123930
+123931
+123932
+123933
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="11"
+Num_Variable_accesses="17">
+<Call_invoke_IDs>
+15390 
+15391 
+15392 
+15393 
+15394 
+15395 
+15396 
+15397 
+15398 
+15399 
+15400 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123917
+123918
+123919
+123920
+123921
+123922
+123923
+123924
+123925
+123926
+123927
+123928
+123929
+123930
+123931
+123932
+123933
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="5"
+Braced="Yes"
+Code_Loc="(45,2),(56,278)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(45,2),(47,20)">
+<Variable
+Id="123917"
+Name="cp"
+Access="Write"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+<Variable
+Id="123918"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+<Variable
+Id="123919"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+<Variable
+Id="123920"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+<Conditional
+Code_Loc="(49,2),(50,11)">
+</Conditional>
+<Conditional
+Code_Loc="(51,2),(52,11)">
+</Conditional>
+<Conditional
+Code_Loc="(53,2),(54,11)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123921"
+Name="c"
+Access="Write"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+<Variable
+Id="123922"
+Name="cp"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+<Call
+Id="15390"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123923"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15391"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123924"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15392"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123925"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15393"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123926"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15394"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123927"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15395"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123928"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15396"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123929"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15397"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123930"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15398"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123931"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15399"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123932"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+<Call
+Id="15400"
+Name="flag"
+Collect="Emanated"
+Access_block="(713,2)"
+Home_block="(713,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(56,2),(56,278)">
+<Variable
+Id="123933"
+Name="c"
+Access="Read"
+Access_block="(713,2)"
+Home_block="(713,2)"/>
+</Data>
+</Call>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="main">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123934
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123934
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(62,2),(78,10)">
+<Data
+Data_owner="Expression"
+Code_Loc="(65,2),(65,36)">
+<Variable
+Id="123934"
+Name="cur_locale"
+Access="Write"
+Access_block="(713,3)"
+Home_block="(713,3)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(66,2),(72,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(70,3),(71,11)">
+</Point_Block>
+</Selective>
+<Cyclic
+Id="6074"
+Code_Loc="(75,2),(76,19)">
+</Cyclic>
+</Point_Block>
+</CICB>
+</Component>

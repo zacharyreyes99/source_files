@@ -1,0 +1,531 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="729"
+Name="tutorial.funcs.c"
+Num_CICBs="7">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(19,1),(112,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="add_one">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126248
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126248
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(38,2),(38,16)">
+<Data
+Data_owner="Jump"
+Code_Loc="(38,2),(38,16)">
+<Variable
+Id="126248"
+Name="arg"
+Access="Read"
+Access_block="(729,1)"
+Home_block="(729,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="add_one_float8">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126249
+126250
+126251
+126252
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126249
+126250
+126251
+126252
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(46,2),(50,15)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(46,2),(46,55)">
+<Variable
+Id="126249"
+Name="result"
+Access="Write"
+Access_block="(729,2)"
+Home_block="(729,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(48,2),(48,22)">
+<Variable
+Id="126250"
+Name="result"
+Access="Write"
+Access_block="(729,2)"
+Home_block="(729,2)"/>
+<Variable
+Id="126251"
+Name="arg"
+Access="Read"
+Access_block="(729,2)"
+Home_block="(729,2)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(50,2),(50,15)">
+<Variable
+Id="126252"
+Name="result"
+Access="Read"
+Access_block="(729,2)"
+Home_block="(729,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="makepoint">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="6">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126253
+126254
+126255
+126256
+126257
+126258
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="6">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126253
+126254
+126255
+126256
+126257
+126258
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(56,2),(61,18)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(56,2),(56,55)">
+<Variable
+Id="126253"
+Name="new_point"
+Access="Write"
+Access_block="(729,3)"
+Home_block="(729,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(58,2),(58,26)">
+<Variable
+Id="126254"
+Name="new_point"
+Access="Write"
+Access_block="(729,3)"
+Home_block="(729,3)"/>
+<Variable
+Id="126255"
+Name="pointx"
+Access="Read"
+Access_block="(729,3)"
+Home_block="(729,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(59,2),(59,26)">
+<Variable
+Id="126256"
+Name="new_point"
+Access="Write"
+Access_block="(729,3)"
+Home_block="(729,3)"/>
+<Variable
+Id="126257"
+Name="pointy"
+Access="Read"
+Access_block="(729,3)"
+Home_block="(729,3)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(61,2),(61,18)">
+<Variable
+Id="126258"
+Name="new_point"
+Access="Read"
+Access_block="(729,3)"
+Home_block="(729,3)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="copytext">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126259
+126260
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126259
+126260
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(72,2),(82,14)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(72,2),(72,46)">
+<Variable
+Id="126259"
+Name="new_t"
+Access="Write"
+Access_block="(729,4)"
+Home_block="(729,4)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(82,2),(82,14)">
+<Variable
+Id="126260"
+Name="new_t"
+Access="Read"
+Access_block="(729,4)"
+Home_block="(729,4)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="5"
+Name="concat_text">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="11">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126261
+126262
+126263
+126264
+126265
+126266
+126267
+126268
+126269
+126270
+126271
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="11">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126261
+126262
+126263
+126264
+126265
+126266
+126267
+126268
+126269
+126270
+126271
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="7"
+Braced="Yes"
+Code_Loc="(88,2),(96,17)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(88,2),(88,45)">
+<Variable
+Id="126261"
+Name="arg1_size"
+Access="Write"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(89,2),(89,45)">
+<Variable
+Id="126262"
+Name="arg2_size"
+Access="Write"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(90,2),(90,57)">
+<Variable
+Id="126263"
+Name="new_text_size"
+Access="Write"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+<Variable
+Id="126264"
+Name="arg1_size"
+Access="Read"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+<Variable
+Id="126265"
+Name="arg2_size"
+Access="Read"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(91,2),(91,52)">
+<Variable
+Id="126266"
+Name="new_text"
+Access="Write"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+<Variable
+Id="126267"
+Name="new_text_size"
+Access="Read"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(94,2),(94,53)">
+<Variable
+Id="126268"
+Name="arg1_size"
+Access="Write"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(95,2),(95,65)">
+<Variable
+Id="126269"
+Name="arg1_size"
+Access="Write"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+<Variable
+Id="126270"
+Name="arg2_size"
+Access="Read"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(96,2),(96,17)">
+<Variable
+Id="126271"
+Name="new_text"
+Access="Read"
+Access_block="(729,5)"
+Home_block="(729,5)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="6"
+Name="c_overpaid">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126272
+126273
+126274
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+126272
+126273
+126274
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(105,2),(111,23)">
+<Data
+Data_owner="Expression"
+Code_Loc="(108,2),(108,66)">
+<Variable
+Id="126272"
+Name="salary"
+Access="Write"
+Access_block="(729,6)"
+Home_block="(729,6)"/>
+</Data>
+<Conditional
+Code_Loc="(109,2),(110,15)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(111,2),(111,23)">
+<Variable
+Id="126273"
+Name="salary"
+Access="Read"
+Access_block="(729,6)"
+Home_block="(729,6)"/>
+<Variable
+Id="126274"
+Name="limit"
+Access="Read"
+Access_block="(729,6)"
+Home_block="(729,6)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

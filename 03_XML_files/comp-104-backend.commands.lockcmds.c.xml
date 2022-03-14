@@ -1,0 +1,536 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="104"
+Name="backend.commands.lockcmds.c"
+Num_CICBs="3">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(27,1),(163,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="LockTableCommand">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="10">
+<Call_invoke_IDs>
+4385 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+20728
+20729
+20730
+20731
+20732
+20733
+20734
+20735
+20736
+20737
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="3"
+Num_Variable_accesses="10">
+<Call_invoke_IDs>
+4383 
+3578 
+4384 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+20728
+20729
+20730
+20731
+20732
+20733
+20734
+20735
+20736
+20737
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(37,2),(52,2)">
+<Cyclic
+Id="961"
+Code_Loc="(42,2),(52,2)">
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(44,3),(51,50)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(44,3),(44,48)">
+<Variable
+Id="20728"
+Name="relation"
+Access="Write"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+<Variable
+Id="20729"
+Name="p"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(45,3),(45,55)">
+<Variable
+Id="20730"
+Name="recurse"
+Access="Write"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+<Call
+Id="4383"
+Name="interpretInhOption"
+Collect="Absorbed"
+Access_block="(104,1)"
+Home_block="(241,3)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(45,3),(45,55)">
+<Variable
+Id="20731"
+Name="relation"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+</Data>
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(48,3),(48,45)">
+<Variable
+Id="20732"
+Name="reloid"
+Access="Write"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+<Call
+Id="3578"
+Name="RangeVarGetRelid"
+Collect="Absorbed"
+Access_block="(104,1)"
+Home_block="(74,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(48,3),(48,45)">
+<Variable
+Id="20733"
+Name="relation"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+</Data>
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(50,3),(51,50)">
+<Call
+Id="4384"
+Name="LockTableRecurse"
+Collect="Bridged"
+Access_block="(104,1)"
+Home_block="(104,2)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(50,3),(51,50)">
+<Variable
+Id="20734"
+Name="reloid"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+<Variable
+Id="20735"
+Name="relation"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+<Variable
+Id="20736"
+Name="lockstmt"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+<Variable
+Id="20737"
+Name="lockstmt"
+Access="Read"
+Access_block="(104,1)"
+Home_block="(104,1)"/>
+</Data>
+</Call>
+</Data>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="LockTableRecurse">
+<Provide
+Num_call_invokes="2"
+Num_Variable_accesses="13">
+<Call_invoke_IDs>
+4384 
+4388 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+20738
+20739
+20740
+20741
+20742
+20743
+20744
+20745
+20746
+20747
+20748
+20749
+20750
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="5"
+Num_Variable_accesses="13">
+<Call_invoke_IDs>
+4386 
+535 
+4387 
+4388 
+724 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+20738
+20739
+20740
+20741
+20742
+20743
+20744
+20745
+20746
+20747
+20748
+20749
+20750
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="8"
+Braced="Yes"
+Code_Loc="(66,2),(162,29)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(74,2),(94,36)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(76,3),(91,3)">
+<Conditional
+Code_Loc="(76,3),(91,3)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(79,4),(90,18)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(79,4),(79,62)">
+<Variable
+Id="20738"
+Name="relname"
+Access="Write"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Variable
+Id="20739"
+Name="rv"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Variable
+Id="20740"
+Name="rv"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Variable
+Id="20741"
+Name="relname"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Call
+Id="4386"
+Name="get_rel_name"
+Collect="Bridged"
+Access_block="(104,2)"
+Home_block="(458,41)">
+</Call>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(81,4),(90,18)">
+</Selective>
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Selective>
+<Data
+Data_owner="Expression"
+Code_Loc="(100,2),(100,41)">
+<Variable
+Id="20742"
+Name="rel"
+Access="Write"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Call
+Id="535"
+Name="try_relation_open"
+Collect="Bridged"
+Access_block="(104,2)"
+Home_block="(36,6)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(100,2),(100,41)">
+<Variable
+Id="20743"
+Name="reloid"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+</Data>
+</Call>
+</Data>
+<Conditional
+Code_Loc="(102,2),(123,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(105,3),(122,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(105,3),(105,38)">
+<Call
+Id="4387"
+Name="UnlockRelationOid"
+Collect="Bridged"
+Access_block="(104,2)"
+Home_block="(353,6)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(105,3),(105,38)">
+<Variable
+Id="20744"
+Name="reloid"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+</Data>
+</Call>
+</Data>
+<Conditional
+Code_Loc="(108,3),(120,3)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(110,4),(119,23)">
+<Selective
+If_Blocks="Yes"
+Code_Loc="(110,4),(119,23)">
+</Selective>
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Conditional>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(126,2),(131,51)">
+</Selective>
+<Conditional
+Code_Loc="(132,2),(134,38)">
+</Conditional>
+<Conditional
+Code_Loc="(137,2),(141,38)">
+</Conditional>
+<Conditional
+Code_Loc="(149,2),(160,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(151,3),(159,3)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(151,3),(151,64)">
+<Variable
+Id="20745"
+Name="children"
+Access="Write"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+</Data>
+<Cyclic
+Id="962"
+Code_Loc="(154,3),(159,3)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(156,4),(158,66)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(156,4),(156,38)">
+<Variable
+Id="20746"
+Name="childreloid"
+Access="Write"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Variable
+Id="20747"
+Name="lc"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(158,4),(158,66)">
+<Call
+Id="4388"
+Name="LockTableRecurse"
+Collect="Bridged"
+Access_block="(104,2)"
+Home_block="(104,2)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(158,4),(158,66)">
+<Variable
+Id="20748"
+Name="childreloid"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+<Variable
+Id="20749"
+Name="lockmode"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+</Data>
+</Call>
+</Data>
+</Point_Block>
+</Cyclic>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(162,2),(162,29)">
+<Call
+Id="724"
+Name="relation_close"
+Collect="Bridged"
+Access_block="(104,2)"
+Home_block="(36,9)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(162,2),(162,29)">
+<Variable
+Id="20750"
+Name="rel"
+Access="Read"
+Access_block="(104,2)"
+Home_block="(104,2)"/>
+</Data>
+</Call>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

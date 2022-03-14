@@ -1,0 +1,545 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="255"
+Name="backend.port.dynloader.darwin.c"
+Num_CICBs="5">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50415
+50416
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50415
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(54,1),(133,1)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(54,1),(54,76)">
+<Variable
+Id="50415"
+Name="cofiff_result"
+Access="Write"
+Access_block="(255,0)"
+Home_block="(255,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="pg_dlopen">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50417
+50418
+50419
+50420
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50416
+50417
+50418
+50419
+50420
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(59,2),(66,43)">
+<Data
+Data_owner="Expression"
+Code_Loc="(61,2),(61,67)">
+<Variable
+Id="50416"
+Name="cofiff_result"
+Access="Write"
+Access_block="(255,1)"
+Home_block="(255,0)"/>
+<Variable
+Id="50417"
+Name="filename"
+Access="Read"
+Access_block="(255,1)"
+Home_block="(255,1)"/>
+<Variable
+Id="50418"
+Name="image"
+Access="Read"
+Access_block="(255,1)"
+Home_block="(255,1)"/>
+</Data>
+<Conditional
+Code_Loc="(62,2),(63,14)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(64,2),(66,43)">
+<Variable
+Id="50419"
+Name="image"
+Access="Read"
+Access_block="(255,1)"
+Home_block="(255,1)"/>
+<Variable
+Id="50420"
+Name="filename"
+Access="Read"
+Access_block="(255,1)"
+Home_block="(255,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="pg_dlclose">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50421
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50421
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(72,2),(72,31)">
+<Data
+Data_owner="Expression"
+Code_Loc="(72,2),(72,31)">
+<Variable
+Id="50421"
+Name="handle"
+Access="Write"
+Access_block="(255,2)"
+Home_block="(255,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="pg_dlsym">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="9">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50422
+50423
+50424
+50425
+50426
+50427
+50428
+50429
+50430
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="9">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50422
+50423
+50424
+50425
+50426
+50427
+50428
+50429
+50430
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(78,2),(93,2)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(79,2),(79,58)">
+<Variable
+Id="50422"
+Name="symname"
+Access="Write"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+<Variable
+Id="50423"
+Name="funcname"
+Access="Read"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(81,2),(81,35)">
+<Variable
+Id="50424"
+Name="symname"
+Access="Write"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+<Variable
+Id="50425"
+Name="funcname"
+Access="Read"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+</Data>
+<Selective
+If_Blocks="Yes"
+Code_Loc="(82,2),(93,2)">
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(84,3),(87,48)">
+<Data
+Data_owner="Expression"
+Code_Loc="(84,3),(84,42)">
+<Variable
+Id="50426"
+Name="symbol"
+Access="Write"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+<Variable
+Id="50427"
+Name="symname"
+Access="Read"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(86,3),(86,16)">
+<Variable
+Id="50428"
+Name="symname"
+Access="Write"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(87,3),(87,48)">
+<Variable
+Id="50429"
+Name="symbol"
+Access="Read"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(91,3),(92,14)">
+<Data
+Data_owner="Expression"
+Code_Loc="(91,3),(91,16)">
+<Variable
+Id="50430"
+Name="symname"
+Access="Write"
+Access_block="(255,3)"
+Home_block="(255,3)"/>
+</Data>
+</Point_Block>
+</Selective>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="pg_dlerror">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="12">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50431
+50432
+50433
+50434
+50435
+50436
+50437
+50438
+50439
+50440
+50441
+50442
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="12">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+50431
+50432
+50433
+50434
+50435
+50436
+50437
+50438
+50439
+50440
+50441
+50442
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(99,2),(132,29)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(102,2),(102,32)">
+<Variable
+Id="50431"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+<Selective
+If_Blocks="No"
+Code_Loc="(104,2),(130,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(108,4),(111,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(108,4),(108,62)">
+<Variable
+Id="50432"
+Name="c"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+<Variable
+Id="50433"
+Name="errorNumber"
+Access="Read"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+<Variable
+Id="50434"
+Name="fileName"
+Access="Read"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+<Variable
+Id="50435"
+Name="errorString"
+Access="Read"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+<Conditional
+Code_Loc="(109,4),(110,46)">
+</Conditional>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(113,4),(114,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(113,4),(113,46)">
+<Variable
+Id="50436"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(116,4),(117,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(116,4),(116,45)">
+<Variable
+Id="50437"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(119,4),(120,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(119,4),(119,57)">
+<Variable
+Id="50438"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(122,4),(123,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(122,4),(122,48)">
+<Variable
+Id="50439"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(125,4),(126,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(125,4),(125,60)">
+<Variable
+Id="50440"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(128,4),(129,9)">
+<Data
+Data_owner="Expression"
+Code_Loc="(128,4),(128,55)">
+<Variable
+Id="50441"
+Name="errorString"
+Access="Write"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+</Selective>
+<Data
+Data_owner="Jump"
+Code_Loc="(132,2),(132,29)">
+<Variable
+Id="50442"
+Name="errorString"
+Access="Read"
+Access_block="(255,4)"
+Home_block="(255,4)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

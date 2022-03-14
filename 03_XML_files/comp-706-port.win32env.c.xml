@@ -1,0 +1,323 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="706"
+Name="port.win32env.c"
+Num_CICBs="3">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(20,1),(140,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="pgwin32_putenv">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="9">
+<Call_invoke_IDs>
+15369 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123633
+123634
+123635
+123636
+123637
+123638
+123639
+123640
+123641
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="9">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123633
+123634
+123635
+123636
+123637
+123638
+123639
+123640
+123641
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="8"
+Braced="Yes"
+Code_Loc="(23,2),(125,24)">
+<Data
+Data_owner="Expression"
+Code_Loc="(103,2),(103,25)">
+<Variable
+Id="123633"
+Name="envcpy"
+Access="Write"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+<Variable
+Id="123634"
+Name="envval"
+Access="Read"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(104,2),(104,26)">
+<Variable
+Id="123635"
+Name="cp"
+Access="Write"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+<Variable
+Id="123636"
+Name="envcpy"
+Access="Read"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+<Conditional
+Code_Loc="(105,2),(106,12)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(107,2),(107,12)">
+<Variable
+Id="123637"
+Name="cp"
+Access="Write"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(108,2),(108,6)">
+<Variable
+Id="123638"
+Name="cp"
+Access="Write"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+<Conditional
+Code_Loc="(109,2),(121,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(116,3),(120,3)">
+<Conditional
+Code_Loc="(116,3),(120,3)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(118,4),(119,13)">
+<Data
+Data_owner="Expression"
+Code_Loc="(118,4),(118,16)">
+<Variable
+Id="123639"
+Name="envcpy"
+Access="Write"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(122,2),(122,14)">
+<Variable
+Id="123640"
+Name="envcpy"
+Access="Write"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(125,2),(125,24)">
+<Variable
+Id="123641"
+Name="envval"
+Access="Read"
+Access_block="(706,1)"
+Home_block="(706,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="pgwin32_unsetenv">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123642
+123643
+123644
+123645
+123646
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="1"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+15369 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+123642
+123643
+123644
+123645
+123646
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="5"
+Braced="Yes"
+Code_Loc="(131,2),(139,14)">
+<Data
+Data_owner="Expression"
+Code_Loc="(133,2),(133,44)">
+<Variable
+Id="123642"
+Name="envbuf"
+Access="Write"
+Access_block="(706,2)"
+Home_block="(706,2)"/>
+<Variable
+Id="123643"
+Name="name"
+Access="Read"
+Access_block="(706,2)"
+Home_block="(706,2)"/>
+</Data>
+<Conditional
+Code_Loc="(134,2),(135,9)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(137,2),(137,30)">
+<Variable
+Id="123644"
+Name="envbuf"
+Access="Write"
+Access_block="(706,2)"
+Home_block="(706,2)"/>
+<Variable
+Id="123645"
+Name="name"
+Access="Read"
+Access_block="(706,2)"
+Home_block="(706,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(138,2),(138,24)">
+<Call
+Id="15369"
+Name="pgwin32_putenv"
+Collect="Emanated"
+Access_block="(706,2)"
+Home_block="(706,1)">
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(139,2),(139,14)">
+<Variable
+Id="123646"
+Name="envbuf"
+Access="Write"
+Access_block="(706,2)"
+Home_block="(706,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

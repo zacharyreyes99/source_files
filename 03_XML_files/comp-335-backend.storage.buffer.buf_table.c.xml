@@ -1,0 +1,516 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="335"
+Name="backend.storage.buffer.buf_table.c"
+Num_CICBs="7">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63501
+63502
+63503
+63504
+63505
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(29,1),(167,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="BufTableShmemSize">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63506
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63506
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(45,2),(45,58)">
+<Data
+Data_owner="Jump"
+Code_Loc="(45,2),(45,58)">
+<Variable
+Id="63506"
+Name="size"
+Access="Read"
+Access_block="(335,1)"
+Home_block="(335,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="InitBufTable">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="7">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63507
+63508
+63509
+63510
+63511
+63512
+63513
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="8">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63507
+63508
+63509
+63510
+63501
+63511
+63512
+63513
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="6"
+Braced="Yes"
+Code_Loc="(55,2),(71,63)">
+<Data
+Data_owner="Expression"
+Code_Loc="(60,2),(60,34)">
+<Variable
+Id="63507"
+Name="info"
+Access="Write"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(61,2),(61,42)">
+<Variable
+Id="63508"
+Name="info"
+Access="Write"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(62,2),(62,22)">
+<Variable
+Id="63509"
+Name="info"
+Access="Write"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(63,2),(63,45)">
+<Variable
+Id="63510"
+Name="info"
+Access="Write"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(65,2),(68,54)">
+<Variable
+Id="63501"
+Name="SharedBufHash"
+Access="Write"
+Access_block="(335,2)"
+Home_block="(335,0)"/>
+<Variable
+Id="63511"
+Name="size"
+Access="Read"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+<Variable
+Id="63512"
+Name="size"
+Access="Read"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+<Variable
+Id="63513"
+Name="info"
+Access="Read"
+Access_block="(335,2)"
+Home_block="(335,2)"/>
+</Data>
+<Conditional
+Code_Loc="(70,2),(71,63)">
+</Conditional>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="BufTableHashCode">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63514
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63502
+63514
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(86,2),(86,55)">
+<Data
+Data_owner="Jump"
+Code_Loc="(86,2),(86,55)">
+<Variable
+Id="63502"
+Name="SharedBufHash"
+Access="Read"
+Access_block="(335,3)"
+Home_block="(335,0)"/>
+<Variable
+Id="63514"
+Name="tagPtr"
+Access="Read"
+Access_block="(335,3)"
+Home_block="(335,3)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="BufTableLookup">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63515
+63516
+63517
+63518
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63515
+63503
+63516
+63517
+63518
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(98,2),(110,19)">
+<Data
+Data_owner="Expression"
+Code_Loc="(100,2),(105,15)">
+<Variable
+Id="63515"
+Name="result"
+Access="Write"
+Access_block="(335,4)"
+Home_block="(335,4)"/>
+<Variable
+Id="63503"
+Name="SharedBufHash"
+Access="Read"
+Access_block="(335,4)"
+Home_block="(335,0)"/>
+<Variable
+Id="63516"
+Name="tagPtr"
+Access="Read"
+Access_block="(335,4)"
+Home_block="(335,4)"/>
+<Variable
+Id="63517"
+Name="hashcode"
+Access="Read"
+Access_block="(335,4)"
+Home_block="(335,4)"/>
+</Data>
+<Conditional
+Code_Loc="(107,2),(108,12)">
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(110,2),(110,19)">
+<Variable
+Id="63518"
+Name="result"
+Access="Read"
+Access_block="(335,4)"
+Home_block="(335,4)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="5"
+Name="BufTableInsert">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="6">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63519
+63520
+63521
+63522
+63523
+63524
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="7">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63519
+63520
+63504
+63521
+63522
+63523
+63524
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="4"
+Braced="Yes"
+Code_Loc="(126,2),(144,11)">
+<Data
+Data_owner="Expression"
+Code_Loc="(130,2),(130,35)">
+<Variable
+Id="63519"
+Name="tagPtr"
+Access="Write"
+Access_block="(335,5)"
+Home_block="(335,5)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(132,2),(137,17)">
+<Variable
+Id="63520"
+Name="result"
+Access="Write"
+Access_block="(335,5)"
+Home_block="(335,5)"/>
+<Variable
+Id="63504"
+Name="SharedBufHash"
+Access="Read"
+Access_block="(335,5)"
+Home_block="(335,0)"/>
+<Variable
+Id="63521"
+Name="tagPtr"
+Access="Read"
+Access_block="(335,5)"
+Home_block="(335,5)"/>
+<Variable
+Id="63522"
+Name="hashcode"
+Access="Read"
+Access_block="(335,5)"
+Home_block="(335,5)"/>
+<Variable
+Id="63523"
+Name="found"
+Access="Read"
+Access_block="(335,5)"
+Home_block="(335,5)"/>
+</Data>
+<Conditional
+Code_Loc="(139,2),(140,20)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(142,2),(142,21)">
+<Variable
+Id="63524"
+Name="result"
+Access="Write"
+Access_block="(335,5)"
+Home_block="(335,5)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="6"
+Name="BufTableDelete">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63525
+63526
+63527
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="4">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+63525
+63505
+63526
+63527
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(156,2),(166,52)">
+<Data
+Data_owner="Expression"
+Code_Loc="(158,2),(163,15)">
+<Variable
+Id="63525"
+Name="result"
+Access="Write"
+Access_block="(335,6)"
+Home_block="(335,6)"/>
+<Variable
+Id="63505"
+Name="SharedBufHash"
+Access="Read"
+Access_block="(335,6)"
+Home_block="(335,0)"/>
+<Variable
+Id="63526"
+Name="tagPtr"
+Access="Read"
+Access_block="(335,6)"
+Home_block="(335,6)"/>
+<Variable
+Id="63527"
+Name="hashcode"
+Access="Read"
+Access_block="(335,6)"
+Home_block="(335,6)"/>
+</Data>
+<Conditional
+Code_Loc="(165,2),(166,52)">
+</Conditional>
+</Point_Block>
+</CICB>
+</Component>

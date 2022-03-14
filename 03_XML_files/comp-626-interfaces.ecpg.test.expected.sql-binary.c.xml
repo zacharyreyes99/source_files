@@ -1,0 +1,203 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="626"
+Name="interfaces.ecpg.test.expected.sql-binary.c"
+Num_CICBs="2">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(32,1),(193,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="main">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117684
+117685
+117686
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+117684
+117685
+117686
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="11"
+Braced="Yes"
+Code_Loc="(57,2),(192,11)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(60,2),(60,24)">
+<Variable
+Id="117684"
+Name="pointer"
+Access="Write"
+Access_block="(626,1)"
+Home_block="(626,1)"/>
+</Data>
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(63,2),(63,39)">
+<Variable
+Id="117685"
+Name="data"
+Access="Write"
+Access_block="(626,1)"
+Home_block="(626,1)"/>
+</Data>
+<Conditional
+Code_Loc="(75,3),(79,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(77,7),(78,27)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(84,3),(88,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(86,7),(87,27)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(95,3),(99,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(97,7),(98,27)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(118,3),(122,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(120,7),(121,27)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(144,3),(148,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(146,7),(147,27)">
+</Point_Block>
+</Conditional>
+<Cyclic
+Id="5713"
+Code_Loc="(156,3),(157,45)">
+</Cyclic>
+<Conditional
+Code_Loc="(173,3),(177,5)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(175,7),(176,27)">
+</Point_Block>
+</Conditional>
+<Cyclic
+Id="5714"
+Code_Loc="(184,3),(185,43)">
+</Cyclic>
+<Data
+Data_owner="Expression"
+Code_Loc="(187,3),(187,16)">
+<Variable
+Id="117686"
+Name="pointer"
+Access="Write"
+Access_block="(626,1)"
+Home_block="(626,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

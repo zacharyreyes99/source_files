@@ -1,0 +1,522 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="0"
+Name="backend.main.main.c"
+Num_CICBs="6">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(48,1),(398,1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="main">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+1
+2
+3
+4
+5
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="10"
+Num_Variable_accesses="6">
+<Call_invoke_IDs>
+0 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+0
+1
+2
+3
+4
+5
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="15"
+Braced="Yes"
+Code_Loc="(61,2),(188,34)">
+<Data
+Data_owner="Expression"
+Code_Loc="(61,2),(61,34)">
+<Variable
+Id="0"
+Name="progname"
+Access="Write"
+Access_block="(0,1)"
+Home_block="(281,0)"/>
+<Variable
+Id="1"
+Name="argv"
+Access="Read"
+Access_block="(0,1)"
+Home_block="(0,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(66,2),(66,25)">
+<Call
+Id="0"
+Name="startup_hacks"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(0,2)">
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(79,2),(79,41)">
+<Variable
+Id="2"
+Name="argv"
+Access="Write"
+Access_block="(0,1)"
+Home_block="(0,1)"/>
+<Call
+Id="1"
+Name="save_ps_display_args"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(516,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(79,2),(79,41)">
+<Variable
+Id="3"
+Name="argc"
+Access="Read"
+Access_block="(0,1)"
+Home_block="(0,1)"/>
+</Data>
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(90,2),(90,60)">
+<Variable
+Id="4"
+Name="argv"
+Access="Write"
+Access_block="(0,1)"
+Home_block="(0,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(114,2),(114,35)">
+<Call
+Id="2"
+Name="pg_perm_setlocale"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(422,1)">
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(115,2),(115,33)">
+<Call
+Id="3"
+Name="pg_perm_setlocale"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(422,1)">
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(126,2),(126,37)">
+<Call
+Id="4"
+Name="pg_perm_setlocale"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(422,1)">
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(127,2),(127,36)">
+<Call
+Id="5"
+Name="pg_perm_setlocale"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(422,1)">
+</Call>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(128,2),(128,33)">
+<Call
+Id="6"
+Name="pg_perm_setlocale"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(422,1)">
+</Call>
+</Data>
+<Conditional
+Code_Loc="(140,2),(152,2)">
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(142,3),(151,3)">
+<Conditional
+Code_Loc="(142,3),(146,3)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(144,4),(145,11)">
+<Data
+Data_owner="Expression"
+Code_Loc="(144,4),(144,18)">
+<Call
+Id="7"
+Name="help"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(0,3)">
+</Call>
+</Data>
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(147,3),(151,3)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(149,4),(150,11)">
+</Point_Block>
+</Conditional>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(157,2),(157,22)">
+<Call
+Id="8"
+Name="check_root"
+Collect="Absorbed"
+Access_block="(0,1)"
+Home_block="(0,4)">
+</Call>
+</Data>
+<Conditional
+Code_Loc="(179,2),(180,35)">
+</Conditional>
+<Conditional
+Code_Loc="(182,2),(183,22)">
+</Conditional>
+<Conditional
+Code_Loc="(185,2),(186,65)">
+</Conditional>
+<Data
+Data_owner="Expression"
+Code_Loc="(188,2),(188,34)">
+<Call
+Id="9"
+Name="PostmasterMain"
+Collect="Emanated"
+Access_block="(0,1)"
+Home_block="(281,1)">
+<Data
+Data_owner="CallParamaters"
+Code_Loc="(188,2),(188,34)">
+<Variable
+Id="5"
+Name="argc"
+Access="Read"
+Access_block="(0,1)"
+Home_block="(0,1)"/>
+</Data>
+</Call>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="startup_hacks">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+0 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(-1,-1),(-1,-1)">
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="help">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+7 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+6
+7
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(268,2),(322,54)">
+<Data
+Data_owner="Expression"
+Code_Loc="(268,2),(268,57)">
+<Variable
+Id="6"
+Name="progname"
+Access="Write"
+Access_block="(0,3)"
+Home_block="(281,0)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(269,2),(269,53)">
+<Variable
+Id="7"
+Name="progname"
+Access="Write"
+Access_block="(0,3)"
+Home_block="(281,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="check_root">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+8 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+8
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(331,2),(353,2)">
+<Conditional
+Code_Loc="(331,2),(338,2)">
+<Point_Block
+Num_points="0"
+Braced="Yes"
+Code_Loc="(333,3),(337,10)">
+</Point_Block>
+</Conditional>
+<Conditional
+Code_Loc="(348,2),(353,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(350,3),(352,10)">
+<Data
+Data_owner="Expression"
+Code_Loc="(350,3),(351,16)">
+<Variable
+Id="8"
+Name="progname"
+Access="Write"
+Access_block="(0,4)"
+Home_block="(281,0)"/>
+</Data>
+</Point_Block>
+</Conditional>
+</Point_Block>
+</CICB>
+<CICB
+Id="5"
+Name="get_current_username">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+9
+11
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+9
+10
+11
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(373,2),(383,28)">
+<Data
+Data_owner="Expression"
+Code_Loc="(375,2),(375,26)">
+<Variable
+Id="9"
+Name="pw"
+Access="Write"
+Access_block="(0,5)"
+Home_block="(0,5)"/>
+</Data>
+<Conditional
+Code_Loc="(376,2),(381,2)">
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(378,3),(380,10)">
+<Data
+Data_owner="Expression"
+Code_Loc="(378,3),(379,33)">
+<Variable
+Id="10"
+Name="progname"
+Access="Write"
+Access_block="(0,5)"
+Home_block="(281,0)"/>
+</Data>
+</Point_Block>
+</Conditional>
+<Data
+Data_owner="Jump"
+Code_Loc="(383,2),(383,28)">
+<Variable
+Id="11"
+Name="pw"
+Access="Read"
+Access_block="(0,5)"
+Home_block="(0,5)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>

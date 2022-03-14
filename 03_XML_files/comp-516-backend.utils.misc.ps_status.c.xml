@@ -1,0 +1,370 @@
+<?xml version = "1.0"?>
+<!DOCTYPE Component [
+<!ELEMENT Component (CICB*)>
+<!ATTLIST Component
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Num_CICBs CDATA #REQUIRED>
+<!ELEMENT CICB (Provide|Require|Block_Point|EMPTY)>
+<!ATTLIST CICB
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED>
+<!ELEMENT Provide (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Require (Call_invoke_IDs|Variable_access_IDs|EMPTY)>
+<!ATTLIST Provide
+Num_call_invokes CDATA #REQUIRED
+Num_Variable_accesses CDATA #REQUIRED>
+<!ELEMENT Call_invoke_IDs EMPTY>
+<!ELEMENT Variable_access_IDs EMPTY>
+<!ELEMENT Point_Block (Selective|Conditional|Cyclic|Data)*>
+<!ATTLIST Provide
+Num_points CDATA #REQUIRED
+Braced CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Selective (Point_Block*|EMPTY)>
+<!ATTLIST Selective
+If_Blocks CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Conditional (Point_Block|EMPTY)>
+<!ATTLIST Conditional
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Cyclic (Point_Block|EMPTY)>
+<!ATTLIST Cyclic
+Id CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Data (Call|Variable|EMPTY)*>
+<!ATTLIST Data
+Data_owner CDATA #REQUIRED
+Code_Loc CDATA #REQUIRED>
+<!ELEMENT Call (Data|EMPTY)>
+<!ATTLIST Call
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Collect CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+<!ELEMENT Variable EMPTY>
+<!ATTLIST Variable
+Id CDATA #REQUIRED
+Name CDATA #REQUIRED
+Access CDATA #REQUIRED
+Access_block CDATA #REQUIRED
+Home_block CDATA #REQUIRED>
+]>
+<Component
+Id="516"
+Name="backend.utils.misc.ps_status.c"
+Num_CICBs="5">
+<CICB
+Id="0"
+Name="Master">
+<Provide
+Num_call_invokes="0"
+Num_Variable_accesses="10">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+53114
+98247
+98810
+98811
+98812
+98813
+98814
+98815
+98816
+98817
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="2">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98810
+98811
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(33,1),(392,1)">
+<Data
+Data_owner="VariableDeclaration"
+Code_Loc="(90,1),(90,52)">
+<Variable
+Id="98810"
+Name="ps_buffer_size"
+Access="Write"
+Access_block="(516,0)"
+Home_block="(516,0)"/>
+<Variable
+Id="98811"
+Name="PS_BUFFER_SIZE"
+Access="Read"
+Access_block="(516,0)"
+Home_block="(516,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="1"
+Name="save_ps_display_args">
+<Provide
+Num_call_invokes="1"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+1 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98818
+98819
+98820
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98812
+98818
+98813
+98819
+98820
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(117,2),(206,13)">
+<Data
+Data_owner="Expression"
+Code_Loc="(117,2),(117,18)">
+<Variable
+Id="98812"
+Name="save_argc"
+Access="Write"
+Access_block="(516,1)"
+Home_block="(516,0)"/>
+<Variable
+Id="98818"
+Name="argc"
+Access="Read"
+Access_block="(516,1)"
+Home_block="(516,1)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(118,2),(118,18)">
+<Variable
+Id="98813"
+Name="save_argv"
+Access="Write"
+Access_block="(516,1)"
+Home_block="(516,0)"/>
+<Variable
+Id="98819"
+Name="argv"
+Access="Read"
+Access_block="(516,1)"
+Home_block="(516,1)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(206,2),(206,13)">
+<Variable
+Id="98820"
+Name="argv"
+Access="Read"
+Access_block="(516,1)"
+Home_block="(516,1)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="2"
+Name="init_ps_display">
+<Provide
+Num_call_invokes="3"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+2954 
+9208 
+9220 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98821
+98822
+98823
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="3">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98821
+98822
+98823
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="3"
+Braced="Yes"
+Code_Loc="(217,2),(219,19)">
+<Data
+Data_owner="Expression"
+Code_Loc="(217,2),(217,18)">
+<Variable
+Id="98821"
+Name="username"
+Access="Write"
+Access_block="(516,2)"
+Home_block="(516,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(218,2),(218,16)">
+<Variable
+Id="98822"
+Name="dbname"
+Access="Write"
+Access_block="(516,2)"
+Home_block="(516,2)"/>
+</Data>
+<Data
+Data_owner="Expression"
+Code_Loc="(219,2),(219,19)">
+<Variable
+Id="98823"
+Name="host_info"
+Access="Write"
+Access_block="(516,2)"
+Home_block="(516,2)"/>
+</Data>
+</Point_Block>
+</CICB>
+<CICB
+Id="3"
+Name="set_ps_display">
+<Provide
+Num_call_invokes="16"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+2833 
+2836 
+3963 
+3965 
+9035 
+9036 
+9037 
+9774 
+9775 
+9837 
+9847 
+9853 
+9863 
+9875 
+9877 
+9878 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="0">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="1"
+Braced="Yes"
+Code_Loc="(289,2),(290,9)">
+<Conditional
+Code_Loc="(289,2),(290,9)">
+</Conditional>
+</Point_Block>
+</CICB>
+<CICB
+Id="4"
+Name="get_ps_display">
+<Provide
+Num_call_invokes="3"
+Num_Variable_accesses="1">
+<Call_invoke_IDs>
+9773 
+12595 
+12609 
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98824
+</Variable_access_IDs>
+</Provide>
+<Require
+Num_call_invokes="0"
+Num_Variable_accesses="5">
+<Call_invoke_IDs>
+</Call_invoke_IDs>
+<Variable_access_IDs>
+98824
+98814
+98815
+98816
+98817
+</Variable_access_IDs>
+</Require>
+<Point_Block
+Num_points="2"
+Braced="Yes"
+Code_Loc="(388,2),(391,41)">
+<Data
+Data_owner="Expression"
+Code_Loc="(388,2),(388,53)">
+<Variable
+Id="98824"
+Name="displen"
+Access="Write"
+Access_block="(516,4)"
+Home_block="(516,4)"/>
+<Variable
+Id="98814"
+Name="ps_buffer"
+Access="Read"
+Access_block="(516,4)"
+Home_block="(516,0)"/>
+<Variable
+Id="98815"
+Name="ps_buffer_fixed_size"
+Access="Read"
+Access_block="(516,4)"
+Home_block="(516,0)"/>
+</Data>
+<Data
+Data_owner="Jump"
+Code_Loc="(391,2),(391,41)">
+<Variable
+Id="98816"
+Name="ps_buffer"
+Access="Read"
+Access_block="(516,4)"
+Home_block="(516,0)"/>
+<Variable
+Id="98817"
+Name="ps_buffer_fixed_size"
+Access="Read"
+Access_block="(516,4)"
+Home_block="(516,0)"/>
+</Data>
+</Point_Block>
+</CICB>
+</Component>
